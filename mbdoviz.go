@@ -25,13 +25,14 @@ type Banknote struct {
 }
 
 func main() {
-	resp, err := http.Get("https://www.tcmb.gov.tr/kurlar/today.xml")
+	resp, err := http.Get("http://www.tcmb.gov.tr/kurlar/today.xml")
 	if err != nil {
 		fmt.Println(err)
 	}
 	defer resp.Body.Close()
 	data, _ := ioutil.ReadAll(resp.Body)
 	data_n := string(data)
+
 	var kurlar struct {
 		Tarih_Date []Currency `xml:"Currency"`
 	}
@@ -39,14 +40,16 @@ func main() {
 		log.Fatal(err)
 	}
 	if len(os.Args[1:]) == 0 {
-		for _, c := range kurlar.Tarih_Date {
-			fmt.Println(c.Isim, "-  Alış:", c.ForexBuying, "-Satış:", c.ForexSelling)
+		for _, c := range kurlar.Tarih_Date[:len(kurlar.Tarih_Date)-1] {
+			fmt.Println(c.Isim, "(", c.CurrencyName, ")", "-  Alış:",
+				c.ForexBuying, "-Satış:", c.ForexSelling)
 		}
 	} else {
 		for _, isim := range os.Args[1:] {
 			for _, c := range kurlar.Tarih_Date {
-				if isim == c.Isim {
-					fmt.Println(c.Isim, "-  Alış:", c.ForexBuying, "-Satış:", c.ForexSelling)
+				if isim == c.Isim || isim == c.CurrencyName {
+					fmt.Println(c.Isim, "(", c.CurrencyName, ")", "-  Alış:",
+						c.ForexBuying, "-Satış:", c.ForexSelling)
 				}
 			}
 		}
