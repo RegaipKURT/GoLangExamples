@@ -31,7 +31,7 @@ func main() {
 	}
 	defer resp.Body.Close()
 	data, _ := ioutil.ReadAll(resp.Body)
-	data_n := string(data[93:])
+	data_n := string(data)
 	var kurlar struct {
 		Tarih_Date []Currency `xml:"Currency"`
 	}
