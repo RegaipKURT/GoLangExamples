@@ -41,14 +41,14 @@ func main() {
 	}
 	if len(os.Args[1:]) == 0 {
 		for _, c := range kurlar.Tarih_Date[:len(kurlar.Tarih_Date)-1] {
-			fmt.Println(c.Isim, "(", c.CurrencyName, ")", "-  Alış:",
+			fmt.Println(c.Isim, "("+c.CurrencyName+")", "-  Alış:",
 				c.ForexBuying, "-Satış:", c.ForexSelling)
 		}
 	} else {
 		for _, isim := range os.Args[1:] {
 			for _, c := range kurlar.Tarih_Date {
 				if isim == c.Isim || isim == c.CurrencyName {
-					fmt.Println(c.Isim, "(", c.CurrencyName, ")", "-  Alış:",
+					fmt.Println(c.Isim, "("+c.CurrencyName+")", "-  Alış:",
 						c.ForexBuying, "-Satış:", c.ForexSelling)
 				}
 			}
