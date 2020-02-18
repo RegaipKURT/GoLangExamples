@@ -39,6 +39,7 @@ func main() {
 	if err := xml.Unmarshal([]byte(data_n), &kurlar); err != nil {
 		log.Fatal(err)
 	}
+	fmt.Printf("Yayınlanma Tarihi: %s\n", kurlar.Tarih)
 	if len(os.Args[1:]) == 0 {
 		for _, c := range kurlar.Tarih_Date[:len(kurlar.Tarih_Date)-1] {
 			fmt.Println(c.Isim, "("+c.CurrencyName+")", "-  Alış:",
