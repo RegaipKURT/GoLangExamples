@@ -25,7 +25,7 @@ type Banknote struct {
 }
 
 func main() {
-	resp, err := http.Get("http://www.tcmb.gov.tr/kurlar/today.xml")
+	resp, err := http.Get("https://www.tcmb.gov.tr/kurlar/today.xml")
 	if err != nil {
 		fmt.Println(err)
 	}
