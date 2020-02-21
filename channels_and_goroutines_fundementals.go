@@ -43,9 +43,9 @@ import (
 
 // square aldığı kanal değerine her seferinde değerin karesini gönderir.
 func square(c chan int) {
-	// for i := 0; i < 10; i++	{
-	// 	c <- i*i
-	// }
+	for i := 0; i < 10; i++	{
+		c <- i*i
+	}
 	close(c) // for döngüsü bitince kanalı kapatacak.
 	deger := <-c
 	fmt.Println("Kapalı kanal değeri: ", deger)
