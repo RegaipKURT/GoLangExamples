@@ -6,7 +6,8 @@ import (
 )
 
 /*
-							KANALLARIN VE GORUTİNELERİN TEMELLERİ
+	KANALLARIN VE GORUTİNELERİN TEMELLERİ
+
 	Gorutine'ler thread değildir. Gorutine ve Thread farkını anlamak için:
 	https://www.geeksforgeeks.org/golang-goroutine-vs-thread/
 	https://www.tutorialspoint.com/difference-between-goroutine-and-thread-in-golang
