@@ -36,6 +36,7 @@ func main() {
 	var kurlar struct {
 		Tarih_Date 	[]Currency `xml:"Currency"`
 	}
+	
 	if err := xml.Unmarshal([]byte(data_n), &kurlar); err != nil {
 		log.Fatal(err)
 	}
