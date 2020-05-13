@@ -3,6 +3,7 @@ package main
 import (
 	"html/template"
 	"net/http"
+	"fmt"
 )
 
 type Page struct {
@@ -27,6 +28,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", handler)
+	fmt.Println("Service running on port 8080...")
 	http.ListenAndServe(":8080", nil)
+	
 
 }
