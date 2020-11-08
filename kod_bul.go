@@ -10,7 +10,13 @@ import (
 )
 
 func main() {
-	args := ""
+	if len(os.Args) <= 1 {
+		fmt.Println("En az bir programlama dili veya parametre belirtin!")
+		fmt.Println("Kullanım: kodbul <programlama dili> <aranacak ifadeler>")
+		os.Exit(0)
+	}
+	fmt.Println("Argümanlar: ", os.Args)
+	var args string
 	for _, w := range os.Args[2:] {
 		args += w + "+"
 	}
