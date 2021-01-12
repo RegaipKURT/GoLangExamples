@@ -29,7 +29,17 @@ import edilip fonksiyonlar çağrılarak kullanılabilir. paketlerin fonksiyon i
 büyük harfle başlamalıdır ki başka paketlerden o fonksiyon çağrılabilsin. (private/public)
 Yukarıda bahsettiğim isimler değiştirilebilir. ../paket_adı yerine gopath'e atılarak da
 paket kullanmak ve import etmek mümkündür. Ayarlar yapılarak farklı şekillerde kullanılabilir.
+
+
+DAHA KOLAY PAKET OLUŞTURMAK İÇİN:
+main.go dosyamızı yazdığımız dizinde "go mod init modul_adimiz" şeklinde komut yazarak
+yine aynı dizinde modul_adi şeklinde modül klasörleri oluşturduktan sonra gerekli kodları
+bu klasörlerin içine yazabiliriz. Burada her klasör bir paket olarak davranacaktır.
+Dolayısıyla oluşturduğumuz klasörlere yazdığımız go kodlarını package klasör_adi
+şeklinde belirmemiz gerekir. Daha sonra main.go dosyamız içinde 'import "modul_adimiz/klasör_adi"'
+şeklinde modüllerimizi import edip kullanabiliriz. 
 */
+
 func main() {
 	fmt.Println("Rastgele sayı: ", rand.Int())
 	color.Red("HATA MESAJI!")
