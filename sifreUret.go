@@ -26,7 +26,7 @@ func main() {
 	//şifre kompleksliği argümanı
 	C := flag.Int("complex", 4, "Complexity of password")
 	flag.Parse()
-	fmt.Println(*L, *C)
+	
 	//sifre üretme fonksiyonunu çağırıp sifre değerine atayalım ve yazdıralım.
 	sifre := GeneratePassword(*L, *C) // karakterli bir string dönecek
 	fmt.Println("Üretilen Şifre:", sifre)
